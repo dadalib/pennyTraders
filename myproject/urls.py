@@ -21,5 +21,7 @@ from boards import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
+    #path('privacy/',views.privacy_policy, name='privacy_policy'),
     path('',views.home,name='home'),
 ]
