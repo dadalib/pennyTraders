@@ -18,6 +18,8 @@ from django.conf.urls import url
 from django.urls import path, include
 from django.contrib import admin
 
+from django.contrib.auth import views as auth_views
+
 #Better to do it like to dont clash with boards
 from accounts import views as accounts_views
 from boards import views
@@ -26,6 +28,8 @@ from boards import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/',accounts_views.signup, name='signup'),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     #path('privacy/',views.privacy_policy, name='privacy_policy'),
