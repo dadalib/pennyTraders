@@ -5,6 +5,8 @@ from django.urls import resolve
 from django.test import TestCase
 from ..views import signup
 from ..forms import SignUpForm
+from django import forms
+
 
 class SignUpTests(TestCase):
     def setUp(self):
@@ -84,8 +86,8 @@ class InvalidSignUpTests(TestCase):
     def test_dont_create_user(self):
         self.assertFalse(User.object.exist())
 
-class SignUpForm(UserCreationForm):
-    email = forms.CharField(max_lenght = 254, required = True, widget = forms.EmailInput())
+class SignUpForm(SignUpForm):
+    email = forms.CharField(max_length = 254, required = True, widget = forms.EmailInput())
     class Meta :
         model = User
         fields = ('username','email','password1','password2')
