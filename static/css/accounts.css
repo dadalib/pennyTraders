@@ -1,6 +1,6 @@
 body{
-    background-attachment: url("https://mdn.mozillademos.org/files/7693/catfront.png");
-    background-attachment: fixed;
+    background-image: url("/static/img/moroccan-flower-dark.png");
+    /*background-attachment: fixed;*/
     background-position: 0 0;
     position: absolute;
 }
